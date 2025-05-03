@@ -42,11 +42,9 @@ function windowResized() {
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
-	//socket = io.connect('http://localhost:3000');
-	//socket = io.connect('https://fifuli.herokuapp.com');
+	const socketConfig = config.getSocketConfig();
+	socket = io(socketConfig.url, socketConfig.options);
 	
-	// Conectar al servidor Socket.io en el VPS
-	socket = io.connect('http://tu-dominio.com');  // Reemplazar con la URL o IP de tu VPS
 	socket.on("mouse",newDrawing);	
 	asignarValores();
 	background(0);
