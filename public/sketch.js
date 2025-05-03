@@ -25,6 +25,7 @@ var isRandomValues = true;
 var isMousePressed = false; 
 
 var isOverGui = false;
+var isModalOpen = false;
 
 var data = {
 		x:0,
@@ -252,7 +253,7 @@ function draw(){
 	
 
 		
-   if (isMousePressed && !isOverGui) {
+   if (isMousePressed && !isOverGui && !isModalOpen) {
 	    socket.emit('mouse',data);
     	dibujarCoso(data);
     } 
